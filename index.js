@@ -7,7 +7,8 @@ var replacements = [
   [ /\[/g, '\\[' ],
   [ /\]/g, '\\]' ],
   [ /\</g, '&lt;' ],
-  [ /\>/g, '&gt;' ] ]
+  [ /\>/g, '&gt;' ],
+  [ /_/g, '\\_' ] ]
 
 module.exports = function(string) {
   return replacements.reduce(

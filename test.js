@@ -10,7 +10,8 @@ require('tape')(function(test) {
     [ '* and text', '* and text' ],
     [ '> not a quote', '&gt; not a quote' ],
     [ '< not a tag >', '&lt; not a tag &gt;' ],
-    [ '[]' , '[]' ] ]
+    [ '[]' , '[]' ],
+    [ '____', '\_\_\_\_' ] ]
     .forEach(function(example) {
       var escaped = escape(example[0])
       var rendered = md.render(escaped)
