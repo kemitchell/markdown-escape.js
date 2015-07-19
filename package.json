@@ -1,7 +1,7 @@
 {
   "name": "markdown-escape",
   "description": "escape Markdown control characters",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "devDependencies": {
     "jsmd-tape": "^0.1.0",
