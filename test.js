@@ -1,10 +1,7 @@
 var md = new (require('markdown-it'))
 var escape = require('./')
 
-function roundTrip(example) {
-  return md.render(escape(example)) }
-
-require('tape')(function(test) {
+require('tape')('inline elements', function(test) {
   [ [ '#1!', '#1!' ],
     [ '1 < 2', '1 &lt; 2' ],
     [ '* and text', '* and text' ],
@@ -18,4 +15,20 @@ require('tape')(function(test) {
       test.ok(
         rendered.indexOf(example[1]) > -1,
         '“' + example[0] + '” becomes “' + example[1] + '”') })
+  test.end() })
+
+require('tape')('block elements', function(test) {
+  [ [ '1. We\'re #1!', '<p>1. We\'re #1!</p>' ],
+    [ '    - We\'re #1!', '<p>    - We\'re #1!</p>' ] ]
+    .forEach(function(example) {
+      var inlineEscaped = escape(example[0])
+      var blockEscaped = escape(example[0], true)
+      var expected = ( example[1] + '\n' )
+      test.notEqual(
+        md.render(inlineEscaped),
+        expected)
+      test.equal(
+        md.render(blockEscaped),
+        expected,
+        '“' + example[0] + '” renders “' + example[1] + '”') })
   test.end() })
