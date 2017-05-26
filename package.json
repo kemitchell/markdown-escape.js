@@ -13,7 +13,7 @@
     "escape",
     "string"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "repository": "kemitchell/markdown-escape.js",
   "scripts": {
     "pretest": "jsmd-tape README.md | sed 's!markdown-escape!./!' | sed 's!jsmd!README!' > README.js",
