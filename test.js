@@ -1,6 +1,6 @@
-var md = new (require('markdown-it'))()
-var escape = require('./')
 var assert = require('assert')
+var commonmark = require('commonmark')
+var escape = require('./')
 
 var examples = [
   ['#1!', '#1!'],
@@ -15,9 +15,16 @@ var examples = [
 
 examples.forEach(function (example) {
   var escaped = escape(example[0])
-  var rendered = md.render(escaped)
+  var rendered = render(escaped)
   assert(
     rendered.indexOf(example[1]) > -1,
     '“' + example[0] + '” becomes “' + example[1] + '”'
   )
 })
+
+function render (markup) {
+  var reader = new commonmark.Parser()
+  var writer = new commonmark.HtmlRenderer()
+  var parsed = reader.parse(markup)
+  return writer.render(parsed)
+}
