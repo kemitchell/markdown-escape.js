@@ -3,6 +3,9 @@
   "description": "escape Markdown control characters",
   "version": "1.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {
     "defence-cli": "^3.0.1",
     "markdown-it": "^4.4.0",
