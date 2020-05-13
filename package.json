@@ -4,9 +4,10 @@
   "version": "1.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "devDependencies": {
-    "jsmd-tape": "^0.1.0",
+    "defence-cli": "^3.0.1",
     "markdown-it": "^4.4.0",
-    "tape": "^4.0.1"
+    "replace-require-self": "^1.1.1",
+    "standard": "^14.3.4"
   },
   "keywords": [
     "Markdown",
@@ -16,7 +17,9 @@
   "license": "MIT",
   "repository": "kemitchell/markdown-escape.js",
   "scripts": {
-    "pretest": "jsmd-tape README.md | sed 's!markdown-escape!./!' | sed 's!jsmd!README!' > README.js",
-    "test": "tape README.js test.js"
+    "lint": "standard",
+    "test:readme": "defence -i javascript README.md | replace-require-self | node",
+    "test:suite": "node test.js",
+    "test": "npm run test:readme && npm run test:suite"
   }
 }
