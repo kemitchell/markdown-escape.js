@@ -22,6 +22,20 @@ examples.forEach(function (example) {
   )
 })
 
+// Test skips.
+
+assert(
+  escape('https://example.com', ['slashes']) ===
+  'https://example.com',
+  'skip slashes'
+)
+
+assert(
+  escape('one_two', ['underscores']) ===
+  'one_two',
+  'skip underscores'
+)
+
 function render (markup) {
   var reader = new commonmark.Parser()
   var writer = new commonmark.HtmlRenderer()
