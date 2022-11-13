@@ -8,7 +8,8 @@ var replacements = [
   [/\]/g, '\\]', 'square brackets'],
   [/</g, '&lt;', 'angle brackets'],
   [/>/g, '&gt;', 'angle brackets'],
-  [/_/g, '\\_', 'underscores']
+  [/_/g, '\\_', 'underscores'],
+  [/`/g, '\\`', 'codeblocks']
 ]
 
 module.exports = function (string, skips) {
